@@ -2,6 +2,8 @@
 
 This is a very simple Neovim plugin that can be used to toggle various boolean-like values.
 
+![gif animation of plugin](./toggle-bool.gif)
+
 The toggle included by default is
 - `True` ←→ `False`
 
