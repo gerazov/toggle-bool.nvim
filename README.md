@@ -41,7 +41,7 @@ require("nvim-highlight-colors").setup {
 	additional_toggles = {
         Yes = 'No',
         On = 'Off',
-        1 = '0',
+        ["0"] = "1",
         Enable = 'Disable',
         Enabled = 'Disabled',
         First = 'Last',
@@ -51,7 +51,6 @@ require("nvim-highlight-colors").setup {
         Ingress = 'Egress',
         Allow = 'Deny',
         All = 'None',
-
     },
 }
 ```
