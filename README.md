@@ -4,7 +4,7 @@ This is a **minimal** Neovim plugin that can be used to toggle various boolean-l
 
 ![gif animation of plugin](./toggle-bool.gif)
 
-The toggles included by default is
+The toggles included by default are:
 - `False` ←→ `True`
 - `false` ←→ `true`
 

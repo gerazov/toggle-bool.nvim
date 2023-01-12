@@ -1,0 +1,66 @@
+*toggle-bool.txt*                                  Toggle boolean-like strings
+
+Author: Branislav Gerazov
+
+==============================================================================
+CONTENTS                                                          *toggle-bool*
+
+  1. Introduction                                    |toggle-bool-introduction|
+  2. Setup                                           |toggle-bool-setup|
+  3. Usage                                           |toggle-bool-usage|
+  4. License                                         |toggle-bool-license|
+
+==============================================================================
+ 1. INTRODUCTION                                     *toggle-bool-introduction*
+
+This is a `minimal` Neovim plugin that can be used to toggle various 
+boolean-like values.
+
+The toggles included by default are:
+- `False` ←→ `True`
+- `false` ←→ `true`
+
+The toggle works for the first match on the current line starting at the 
+cursor position. 
+
+Additional toggles can be |toggle-bool-setup| by the user.
+
+
+==============================================================================
+ 2. SETUP                                                   *toggle-bool-setup*
+
+To setup the plugin run:
+>lua
+    require("toggle-bool").setup {
+        mapping = "<leader>tt",
+        additional_toggles = {
+            Yes = 'No',
+            On = 'Off',
+            ["0"] = "1",
+            Enable = 'Disable',
+            Enabled = 'Disabled',
+            First = 'Last',
+            Before = 'After',
+            Persistent = 'Ephemeral',
+            Internal = 'External',
+            Ingress = 'Egress',
+            Allow = 'Deny',
+            All = 'None',
+        },
+    }
+<
+
+==============================================================================
+ 3. USAGE                                                   *toggle-bool-usage*
+
+The plugin exposes a single function `toggle_bool` that is mapped to the 
+specified `mapping`. 
+
+Alternatively, it can be called via:
+>lua
+    :lua require("toggle-bool").toggle_bool()
+<
+==============================================================================
+ 4. LICENSE                                               *toggle-bool-license*
+
+ The plugin is licensed with the MIT license.
