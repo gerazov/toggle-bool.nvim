@@ -1,28 +1,18 @@
 # toggle-bool.nvim
 
-This is a very simple Neovim plugin that can be used to toggle various boolean-like values.
+This is a **minimal** Neovim plugin that can be used to toggle various boolean-like values.
 
 ![gif animation of plugin](./toggle-bool.gif)
 
 The toggle included by default is
-- `True` ←→ `False`
+- `False` ←→ `True`
+- `false` ←→ `true`
 
-The toggle works for the first match on the current line and does not change the cursor position. Upper, lower and capitalized case are supported and retained.
+The toggle works for the first match on the current line after the cursor and does not change the cursor position. 
 
-Additional toggles can be enabled via the setup function, e.g.:
-- `Yes` ←→ `No`
-- `On` ←→ `Off`
-- `1` ←→ `0`
-- `Enable(d)` ←→ `Disable(d)`
-- `First` ←→ `Last`
-- `Before` ←→ `After`
-- `Persistent` ←→ `Ephemeral`
-- `Internal` ←→ `External`
-- `Ingress` ←→ `Egress`
-- `Allow` ←→ `Deny`
-- `All` ←→ `None`
+Additional toggles can be [setup](#setup) by the user.
 
-This plugin is a port of the Vim version [gerazov/vim-toggle-bool](https://github.com/gerazov/vim-toggle-bool).
+This plugin is a Lua port of the Vim version [gerazov/vim-toggle-bool](https://github.com/gerazov/vim-toggle-bool).
 
 ## Setup
 
@@ -36,8 +26,8 @@ use 'gerazov/toggle-bool.nvim'
 
 To setup the plugin run:
 ```lua
-require("nvim-highlight-colors").setup {
-    mapping = "<leader>t",
+require("toggle-bool").setup {
+    mapping = "<leader>tt",
 	additional_toggles = {
         Yes = 'No',
         On = 'Off',
@@ -57,5 +47,17 @@ require("nvim-highlight-colors").setup {
 
 ## Usage
 
-The plugin creates a single command `ToggleBool`. 
-It can be mapped via the setup function.
+The plugin exposes a single function `toggle_bool` that is mapped to the specified `mapping`. 
+
+Alternatively, it can be called via:
+```lua
+:lua require("toggle-bool").toggle_bool()
+```
+
+## Similar plugins
+
+- [rmagatti/alternate-toggler](https://github.com/rmagatti/alternate-toggler) - a bit heavier, toggles current word under cursor via yanking
+- [monaqa/dial.nvim](https://github.com/monaqa/dial.nvim) - a more powerful cycler plugin supporting dates, colors etc.
+- [johmsalas/shake.nvim](https://github.com/johmsalas/shake.nvim) - a more general purpose string transformation plugin that can be used for toggling booleans
+- [gerazov/vim-toggle-bool](https://github.com/gerazov/vim-toggle-bool) - VIML toggler based on `switch.vim`
+- [AndrewRadev/switch.vim](https://github.com/AndrewRadev/switch.vim) - a powerful general purpose string transformation plugin

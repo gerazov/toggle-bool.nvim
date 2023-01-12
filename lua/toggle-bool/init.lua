@@ -1,9 +1,9 @@
 local M = {
+  mapping = "<leader>tt",
   toggles = {
     ["false"] = "true",
     ["False"] = "True",
   },
-  mapping = "<leader>tt",
 }
 
 M.toggle_bool = function()
