@@ -4,11 +4,11 @@ This is a **minimal** Neovim plugin that can be used to toggle various boolean-l
 
 ![gif animation of plugin](./toggle-bool.gif)
 
-The toggle included by default is
+The toggles included by default is
 - `False` ←→ `True`
 - `false` ←→ `true`
 
-The toggle works for the first match on the current line after the cursor and does not change the cursor position. 
+The toggle works for the first match on the current line starting at the cursor position. 
 
 Additional toggles can be [setup](#setup) by the user.
 
