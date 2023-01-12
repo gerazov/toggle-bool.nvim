@@ -1,4 +1,5 @@
-local M = {
+local M = {}
+M.conf = {
   mapping = "<leader>tt",
   toggles = {
     ["false"] = "true",
@@ -10,7 +11,7 @@ M.toggle_bool = function()
   local line = vim.api.nvim_get_current_line()
   local _, col = unpack(vim.api.nvim_win_get_cursor(0))
   local sub_line = string.sub(line, col + 1)
-  for key, value in pairs(M.toggles) do
+  for key, value in pairs(M.conf.toggles) do
     if string.find(sub_line, key) then
       local new_sub_line = string.gsub(sub_line, key, value, 1)
       local new_line = string.sub(line, 1, col) .. new_sub_line
@@ -26,12 +27,12 @@ end
 M.setup = function(opts)
   opts = opts or {}
   if opts.additional_toggles then
-    M.toggles = vim.tbl_extend("force", M.toggles, opts.additional_toggles)
+    M.conf.toggles = vim.tbl_extend("force", M.conf.toggles, opts.additional_toggles)
   end
   if opts.mapping then
-    M.mapping = opts.mapping
+    M.conf.mapping = opts.mapping
   end
-  vim.keymap.set("n", M.mapping, M.toggle_bool)
+  vim.keymap.set("n", M.conf.mapping, M.toggle_bool)
 end
 
 return M
