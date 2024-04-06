@@ -40,6 +40,10 @@ local function find_toggle_word(line)
 end
 
 M.toggle_bool = function()
+  if vim.o.modifiable == false then
+    vim.print("toggl-bool.nvim: Cannot toggle. Buffer is not modifiable.")
+    return
+  end
   local line = vim.api.nvim_get_current_line()
   local _, col = unpack(vim.api.nvim_win_get_cursor(0))
   local sub_line = string.sub(line, col + 1)
